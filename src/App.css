@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+}
+
+.Wrapper {
+  margin-top: 50px;
+  margin-right: auto; /* 1 */
+  margin-left:  auto; /* 1 */
+
+  max-width: 960px; /* 2 */
+
+  padding-right: 10px; /* 3 */
+  padding-left:  10px; /* 3 */
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.card-header {
+  background-color: #6D72C3 !important;
+  color: white !important;
+}
+
+.errorMessage {
+  color: rgb(167, 2, 2);
+  text-transform: capitalize;
+  padding-top: 10px;
+}
+

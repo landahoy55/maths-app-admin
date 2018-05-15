@@ -1,0 +1,18 @@
+.btnAdd {
+    background: #442DB3 !important;
+    border-color: #442DB3 !important;    
+}
+
+.editTopic {
+    margin-top: 50px;
+}
+
+.addTopicHeader {
+    background-color: rgb(235, 234, 234);
+}
+
+.addTopicHeaderParent {
+    border: #442DB3 !important;
+}
+
+

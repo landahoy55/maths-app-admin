@@ -1,0 +1,27 @@
+.signin-form {
+    /* background: pink; */
+    /* background: linear-gradient(red, yellow); */
+}
+
+.formInputFields {
+    margin-bottom: 5px;
+}
+
+.signInBtn {
+    margin-top: 5px;
+}
+
+.errorMessage-sign-in {
+    color: rgb(167, 2, 2);
+    text-transform: capitalize;
+    padding-top: 10px;
+}
+
+.signInBtn {
+    background: #442DB3 !important;
+    border-color: #442DB3 !important;
+}
+
+
+
+

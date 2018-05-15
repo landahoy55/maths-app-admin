@@ -1,0 +1,12 @@
+.bg-light {
+    /* background: #442DB3 !important; */
+    background: linear-gradient(to right,#442DB3, #C86DD7);
+}
+
+.navbar-light a {
+    color: white !important;
+}
+
+.navbar-light a:hover {
+    color:rgb(179, 177, 179) !important;
+}

@@ -1,0 +1,25 @@
+.image-log-in {
+    float: left;
+}
+
+/* .title-log-in {
+    float: right;
+} */
+
+.words-log-in {
+    top: 30px;
+}
+
+.page-header {
+    margin-bottom: 50px;
+}
+
+.card-body {
+    height: 142px;
+}
+
+.homeBtn {
+    background: #442DB3 !important;
+    border-color: #442DB3 !important;
+}
+    
