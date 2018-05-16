@@ -448,7 +448,7 @@ class TodayChallenge extends Component {
               .catch(function (error) {
                 console.log("ERROR SENDING DAILY CHALLENGE");
                 console.log(error);
-
+                alert("Error publishing challenge")
                 currentComponent.setState({
                     confirmationMessage: 'There was an issue publishing the challenge'
                 })

@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import MuliChoiceStyles from './MultiChoice.css';
+import Dropzone from 'react-dropzone';
+import request from 'superagent';
 
-class MultiChoice extends Component {
+const CLOUDINARY_UPLOAD_PRESET = 'm3zoe3sx';
+const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/landahoy55/upload';
+
+class ImageMultiChoice extends Component {
     
     constructor(props) {
         super(props);
@@ -16,11 +21,16 @@ class MultiChoice extends Component {
             answer1: this.props.question.answers[0].answer,
             answer2: this.props.question.answers[1].answer,
             answer3: this.props.question.answers[2].answer,
-            answer4: this.props.question.answers[3].answer
+            answer4: this.props.question.answers[3].answer,
+            imageurl: this.props.question.imageurl,
+            uploadedFileCloudinaryURL: ''
         }
 
         this.onEdit = this.onEdit.bind(this);
         this.onEditSubmit = this.onEditSubmit.bind(this);
+        this.onImageDrop = this.onImageDrop.bind(this);
+        this.handleImageUpload = this.handleImageUpload.bind(this);
+        console.log("QUESTION image url", this.props.question.imageurl)
 
     }
 
@@ -30,6 +40,54 @@ class MultiChoice extends Component {
                 sameAnswers: "Update answers!"
             })
         }
+    }
+
+    onImageDrop(files, rejectedFiles) {
+
+       if (rejectedFiles) {
+           console.log("REJECTED FILES")
+           alert("Not correct file type")
+           return
+       }
+
+        //Docs suggest that a second parameter should allow for error handling. Not working.
+        // if (rejected) {
+        //     console.log("Incorrect file")
+        //     this.setState({
+        //         fileError: 'Incorrect file type'
+        //     })
+        // }
+
+        //cloudinary returns images array. Only single image - so at position one
+        this.setState({
+            uploadedFile: files[0],
+            fileError: ''
+        })
+
+        this.handleImageUpload(files[0])
+
+    }
+
+    handleImageUpload(file) {
+    //post image to cloudinary
+     let upload = request.post(CLOUDINARY_UPLOAD_URL)
+                    .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+                    .field('file', file);
+
+        upload.end((err, response) => {
+            if (err) {
+                console.log(err)
+            }
+
+            if (response.body.secure_url !== '') {
+                // this.questionNumber = this.props.questionNumber - 1;
+                // this.props.onImageURLset(response.body.secure_url, this.questionNumber)
+                this.setState({
+                    //image url - add to database...
+                    uploadedFileCloudinaryURL: response.body.secure_url
+                });
+            }
+        });
     }
 
     radioChange = (e) => {
@@ -60,6 +118,16 @@ class MultiChoice extends Component {
         let correctAnswer3 = this.answer3Input.value
         let correctAnswer4 = this.answer4Input.value
 
+
+        //conditional - only update new image if url is present
+        let imageurl = this.state.imageurl
+   
+        if (this.state.uploadedFileCloudinaryURL != '') {     
+            imageurl = this.state.uploadedFileCloudinaryURL
+        }
+
+        console.log("IMAGE URL ONCE NEW IMAGE UPLOADED", imageurl)
+
         //check for blank
         if (question == '' || correctAnswer == '' || correctAnswer1 == '' || correctAnswer2 == '' || correctAnswer3 == '' || correctAnswer4 == '') {
 
@@ -79,6 +147,7 @@ class MultiChoice extends Component {
                 answer2answer: correctAnswer2,
                 answer3answer: correctAnswer3,
                 answer4answer: correctAnswer4,
+                imageurl: imageurl
             })
             .then(function (response) {
                     console.log(response);
@@ -90,13 +159,14 @@ class MultiChoice extends Component {
                             answer2answer: correctAnswer2,
                             answer3answer: correctAnswer3,
                             answer4answer: correctAnswer4,
+                            imageurl: imageurl,
                             errorMessage: '',
                             sameAnswers:''
                         });
             })
             .catch(function (error) {
                     console.log(error);
-                    alert("Error updating question")
+                    alert("Issue updating subtopic")
             });
 
             this.setState({isEdit: false});
@@ -104,6 +174,17 @@ class MultiChoice extends Component {
     }
 
     render() {
+
+        //move to css file?
+        const dropzoneStyle = {
+            width  : "20%",
+            height : "20%",
+            border : "2px dashed #442DB3"
+        };
+
+        const imageStyle = {
+            width : "200px"
+        }
     
       return (
         <div className="list-group-item">
@@ -173,8 +254,48 @@ class MultiChoice extends Component {
                         }
                         </div>
                     </div>
-                        <p className="text-danger">{this.state.errorMessage}</p>
-                        <button className="btn btn-success">Save</button>
+                    
+                    {
+                        this.state.imageurl !== this.state.uploadedFileCloudinaryURL &&
+                        <div>
+                            <img style={imageStyle} alt={this.state.imageurl} src={this.state.imageurl} />
+                        </div>
+                    }
+                    
+
+                    {this.state.uploadedFileCloudinaryURL ? 
+                        (
+                            <div>
+                            {
+                                this.state.uploadedFileCloudinaryURL === '' ? 
+                                <div>
+                                    <img style={imageStyle} alt={this.state.imageurl} src={this.state.imageurl} />
+                                 </div>
+                                : 
+                                 <div>
+                                    <img style={imageStyle} alt={this.state.uploadedFile.name} src={this.state.uploadedFileCloudinaryURL} />
+                                 </div>
+                            }
+                             </div>
+                        ) 
+                        : 
+                        (
+                            <div>
+                                <Dropzone
+                                    multiple={false}
+                                    accept="image/*"
+                                    onDrop={this.onImageDrop}
+                                    style={dropzoneStyle}
+                                >
+                                    <p>Drag in an image, or click to upload</p>
+                                </Dropzone>
+                                     <p className="text-danger">{this.state.fileError}</p>
+                            </div>
+                        )
+                    }
+
+                    <p className="text-danger">{this.state.errorMessage}</p>
+                    <button className="btn btn-success">Save</button>
             </form> 
           )
           :(
@@ -194,5 +315,5 @@ class MultiChoice extends Component {
   
   
   
-  export default MultiChoice;
+  export default ImageMultiChoice;
 

@@ -97,16 +97,17 @@ class TopicDetail extends Component {
                 description: description
             })
             .then(function (response) {
-            console.log(response);
-            currentComponent.setState({
-                    isEdit: false,
-                    title: title,
-                    description: description,
-                    errorMessage: ""
-                });
-            })
+                console.log(response);
+                currentComponent.setState({
+                        isEdit: false,
+                        title: title,
+                        description: description,
+                        errorMessage: ""
+                    });
+                })
             .catch(function (error) {
-            console.log(error);
+                alert("Error editing topic")
+                console.log(error);
             });
 
         }

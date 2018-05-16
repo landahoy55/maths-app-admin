@@ -3,7 +3,7 @@ import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import QuestionStyles from './Question.css';
 
-class Question extends Component {
+class VoiceQuestion extends Component {
     
     constructor(props) {
         super(props);
@@ -23,11 +23,11 @@ class Question extends Component {
         this.onEditSubmit = this.onEditSubmit.bind(this);
 
     }
-
+    
     componentDidMount(){
-        if (isNaN(this.state.correctAnswer)) {
+        if (isNaN(this.state.correctAnswer) || this.state.correctAnswer.length > 2) {
             this.setState({
-                answerIssue: "Make sure the answer is a whole number"
+                answerIssue: "Make sure the answer is a two digit number"
             })
         }
     }
@@ -46,10 +46,12 @@ class Question extends Component {
         let question = this.questionInput.value
         let correctAnswer = this.answerInput.value
 
-        if (isNaN(correctAnswer)){
+        if (correctAnswer.length > 2 || isNaN(correctAnswer)) {
+            // alert("NOT A NUMBER")
+            console.log("ANSWER LENGTH", correctAnswer.length)
             this.setState({
-                errorMessage: "Make sure the answer is a whole number"
-            });
+                errorMessage:"Make sure the answer is a two digit number"
+            })
             return
         }
 
@@ -59,7 +61,7 @@ class Question extends Component {
             console.log("In if block")
             
             this.setState({
-                errorMessage: "Please add a name and description"
+                errorMessage: "Please add a question and an answer"
             });
 
         } else {
@@ -84,12 +86,12 @@ class Question extends Component {
                             answer3answer: correctAnswer,
                             answer4answer: correctAnswer,
                             errorMessage: "",
-                            answerIssue:""
+                            answerIssue: ""
                         });
             })
             .catch(function (error) {
-                    console.log(error);
                     alert("Error updating question")
+                    console.log(error);
             });
 
         this.setState({isEdit: false});
@@ -140,5 +142,5 @@ class Question extends Component {
   
   
   
-  export default Question;
+  export default VoiceQuestion;
 

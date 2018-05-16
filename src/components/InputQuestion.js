@@ -28,6 +28,12 @@ class InputQuestion extends Component {
     }
 
     correctAnswerSet = (e) => {
+
+        if (isNaN(e.target.value)){
+            alert("The answer should be a number")
+            return
+        }
+
         const correctAnswer = e.target.value;
         this.setState({
             correctAnswer: correctAnswer,

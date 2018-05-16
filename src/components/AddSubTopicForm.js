@@ -466,6 +466,7 @@ class AddSubTopicForm extends Component {
                     
                     console.log(error)
                     console.log("issue adding subtopic")
+                    alert("Issue adding sub-topic to main topic")
                 
                 });
         
@@ -474,6 +475,8 @@ class AddSubTopicForm extends Component {
               .catch(function (error) {
                 console.log("ERROR ");
                 console.log(error);
+                alert("Issue adding subtopic")
+
 
                 // currentComponent.setState({
                 //     confirmationMessage: 'There was an issue'

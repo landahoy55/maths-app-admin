@@ -29,15 +29,14 @@ class MultipleChoiceImages extends Component {
         this.onImageDrop = this.onImageDrop.bind(this);
     }
 
-    onImageDrop(files) {
+    onImageDrop(files, rejectedFiles) {
 
         //Docs suggest that a second parameter should allow for error handling. Not working.
-        // if (rejected) {
-        //     console.log("Incorrect file")
-        //     this.setState({
-        //         fileError: 'Incorrect file type'
-        //     })
-        // }
+        if (rejectedFiles) {
+            console.log("REJECTED FILES")
+            alert("Not correct file type")
+            return
+        }
 
         //cloudinary returns images array. Only single image - so at position one
         this.setState({

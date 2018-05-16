@@ -130,11 +130,13 @@ class ManageQuestions extends Component {
                     })
                     .catch(function (error) {
                         console.log(error);
+                        alert("Error getting topics")
                 });
 
             })
             .catch(function (error) {
                 console.log("Topic deletion error", error)
+                alert("Error deleteing topic")
         });
 
 
@@ -145,6 +147,7 @@ class ManageQuestions extends Component {
             })
             .catch(function (error) {
                 console.log("Topic results deletion error", error)
+                alert("Error deleting results")
         });
      
 
@@ -181,6 +184,7 @@ class ManageQuestions extends Component {
             })
             .catch(function (error) {
                 console.log(error);
+                alert("Error getting topics")
             });
     }
 

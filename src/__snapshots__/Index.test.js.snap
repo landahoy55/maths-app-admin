@@ -1,0 +1,912 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it should render Challenge 1`] = `
+<div
+  className="Challenge App"
+>
+  <h1>
+    Daily Challenge
+  </h1>
+  <Link
+    replace={false}
+    to="/todaychallenge"
+  >
+    <h2>
+      Create Today's Challenge
+    </h2>
+  </Link>
+</div>
+`;
+
+exports[`it should render HandwritingQuestion 1`] = `
+<div
+  className="list-group-item"
+>
+  <label
+    class="col-form-label"
+    for="challengeType"
+  >
+    Question Number: 
+  </label>
+  <input
+    class="form-control"
+    onBlur={[Function]}
+    placeholder="Question"
+  />
+  <input
+    class="form-control"
+    onBlur={[Function]}
+    placeholder="Answer"
+  />
+  <div
+    className="text-danger"
+  />
+  <span />
+  <span />
+  <span />
+  <span />
+  <span />
+</div>
+`;
+
+exports[`it should render Home 1`] = `
+<Route
+  render={[Function]}
+/>
+`;
+
+exports[`it should render InputQuestion 1`] = `
+<div
+  className="list-group-item"
+>
+  <label
+    class="col-form-label"
+    for="challengeType"
+  >
+    Question Number: 
+  </label>
+  <input
+    class="form-control"
+    onBlur={[Function]}
+    placeholder="Question"
+  />
+  <input
+    class="form-control"
+    onBlur={[Function]}
+    placeholder="Answer"
+  />
+  <span />
+  <span />
+  <span />
+  <span />
+  <span />
+</div>
+`;
+
+exports[`it should render InputQuestion 2`] = `
+<div
+  className="list-group-item"
+>
+  <label
+    class="col-form-label"
+    for="challengeType"
+  >
+    Question Number: 
+  </label>
+  <input
+    class="form-control"
+    onBlur={[Function]}
+    placeholder="Question"
+  />
+  <input
+    class="form-control"
+    onBlur={[Function]}
+    placeholder="Answer"
+  />
+  <span />
+  <span />
+  <span />
+  <span />
+  <span />
+</div>
+`;
+
+exports[`it should render ManageQuestions 1`] = `
+<div
+  className="Challenge Wrapper"
+>
+  <div
+    className="page-header"
+  >
+    <h3>
+      Manage Questions
+    </h3>
+    <h6>
+      From here you can add, delete, and amend topics and questions
+    </h6>
+  </div>
+  <div
+    className="list-group addTopicHeaderParent"
+  >
+    <div
+      className="list-group-item addTopicHeader"
+    >
+      <div>
+        <h3
+          className="list-group-item-text"
+        >
+          Add a new topic and related questions
+        </h3>
+        <Link
+          className="btn btn-primary btnAdd"
+          replace={false}
+          to="/addtopic"
+        >
+          Add Topic
+        </Link>
+      </div>
+    </div>
+  </div>
+  <div
+    className="page-header editTopic"
+  >
+    <h3>
+      Edit an existing topic
+    </h3>
+  </div>
+  <p>
+    Loading
+  </p>
+</div>
+`;
+
+exports[`it should render SignIn 1`] = `
+<Route
+  render={[Function]}
+/>
+`;
+
+exports[`it should render TodayChallenge 1`] = `
+<Route
+  render={[Function]}
+/>
+`;
+
+exports[`it should render VoiceInputQuestionicDetail 1`] = `
+<div
+  className="list-group-item"
+>
+  <label
+    class="col-form-label"
+    for="challengeType"
+  >
+    Question Number: 
+  </label>
+  <input
+    class="form-control"
+    onBlur={[Function]}
+    placeholder="Question"
+  />
+  <input
+    class="form-control"
+    onBlur={[Function]}
+    placeholder="Answer"
+  />
+  <div
+    className="text-danger"
+  />
+  <span />
+  <span />
+  <span />
+  <span />
+  <span />
+</div>
+`;
+
+exports[`it should render add sub topic 1`] = `
+<div>
+  <div
+    className="list-group"
+  >
+    <div
+      className="list-group-item"
+    >
+      <div>
+        <div>
+          <h5>
+            Sub-topic 
+          </h5>
+          <button
+            className="btn btn-primary addBtn"
+            onClick={[Function]}
+          >
+            Add
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`it should render add sub topic form 1`] = `
+<div
+  className="Wrapper"
+>
+  <div
+    className="list-group"
+  >
+    <form
+      onSubmit={undefined}
+    >
+      <div
+        className="list-group-item"
+      >
+        <label
+          className="col-form-label"
+          htmlFor="challengeType"
+        >
+          <b>
+            Sub-topic Type
+          </b>
+        </label>
+        <select
+          className="form-control"
+          name="challengeType"
+          onChange={[Function]}
+        >
+          <option
+            value="multipleChoice"
+          >
+            Multiple Choice
+          </option>
+          <option
+            value="input"
+          >
+            Input
+          </option>
+          <option
+            value="multipleChoiceImage"
+          >
+            Images
+          </option>
+          <option
+            value="voiceInput"
+          >
+            Voice
+          </option>
+          <option
+            value="handWriting"
+          >
+            Handwriting
+          </option>
+        </select>
+        <label
+          className="col-form-label"
+          htmlFor="subDesc"
+        >
+          <b>
+            Title
+          </b>
+        </label>
+        <input
+          className="form-control"
+          onBlur={[Function]}
+          placeholder="Title"
+        />
+        <span
+          className="form-text text-danger"
+        />
+        <br />
+        <label
+          className="col-form-label"
+          htmlFor="subDesc"
+        >
+          <b>
+            Description
+          </b>
+        </label>
+        <input
+          className="form-control"
+          onBlur={[Function]}
+          placeholder="Description"
+        />
+        <span
+          className="form-text text-danger"
+        />
+      </div>
+      <div
+        className="list-group"
+      >
+        <MultipleChoiceQuestion
+          correctAnswer1Selected=""
+          correctAnswer2Selected=""
+          correctAnswer3Selected=""
+          correctAnswer4Selected=""
+          correctAnswer5Selected=""
+          onAnswerSet={[Function]}
+          onCorrectAnswerSet={[Function]}
+          onQuestionSet={[Function]}
+          question1AnswersError=""
+          question1Error=""
+          question2AnswersError=""
+          question2Error=""
+          question3AnswersError=""
+          question3Error=""
+          question4AnswersError=""
+          question4Error=""
+          question5AnswersError=""
+          question5Error=""
+          questionNumber={1}
+        />
+        <MultipleChoiceQuestion
+          correctAnswer1Selected=""
+          correctAnswer2Selected=""
+          correctAnswer3Selected=""
+          correctAnswer4Selected=""
+          correctAnswer5Selected=""
+          onAnswerSet={[Function]}
+          onCorrectAnswerSet={[Function]}
+          onQuestionSet={[Function]}
+          question1AnswersError=""
+          question1Error=""
+          question2AnswersError=""
+          question2Error=""
+          question3AnswersError=""
+          question3Error=""
+          question4AnswersError=""
+          question4Error=""
+          question5AnswersError=""
+          question5Error=""
+          questionNumber={2}
+        />
+        <MultipleChoiceQuestion
+          correctAnswer1Selected=""
+          correctAnswer2Selected=""
+          correctAnswer3Selected=""
+          correctAnswer4Selected=""
+          correctAnswer5Selected=""
+          onAnswerSet={[Function]}
+          onCorrectAnswerSet={[Function]}
+          onQuestionSet={[Function]}
+          question1AnswersError=""
+          question1Error=""
+          question2AnswersError=""
+          question2Error=""
+          question3AnswersError=""
+          question3Error=""
+          question4AnswersError=""
+          question4Error=""
+          question5AnswersError=""
+          question5Error=""
+          questionNumber={3}
+        />
+        <MultipleChoiceQuestion
+          correctAnswer1Selected=""
+          correctAnswer2Selected=""
+          correctAnswer3Selected=""
+          correctAnswer4Selected=""
+          correctAnswer5Selected=""
+          onAnswerSet={[Function]}
+          onCorrectAnswerSet={[Function]}
+          onQuestionSet={[Function]}
+          question1AnswersError=""
+          question1Error=""
+          question2AnswersError=""
+          question2Error=""
+          question3AnswersError=""
+          question3Error=""
+          question4AnswersError=""
+          question4Error=""
+          question5AnswersError=""
+          question5Error=""
+          questionNumber={4}
+        />
+        <MultipleChoiceQuestion
+          correctAnswer1Selected=""
+          correctAnswer2Selected=""
+          correctAnswer3Selected=""
+          correctAnswer4Selected=""
+          correctAnswer5Selected=""
+          onAnswerSet={[Function]}
+          onCorrectAnswerSet={[Function]}
+          onQuestionSet={[Function]}
+          question1AnswersError=""
+          question1Error=""
+          question2AnswersError=""
+          question2Error=""
+          question3AnswersError=""
+          question3Error=""
+          question4AnswersError=""
+          question4Error=""
+          question5AnswersError=""
+          question5Error=""
+          questionNumber={5}
+        />
+      </div>
+      <button
+        className="btn btn-success"
+        onClick={[Function]}
+      >
+        Save Subtopic
+      </button>
+    </form>
+    <p />
+  </div>
+</div>
+`;
+
+exports[`it should render add topic 1`] = `
+<div
+  className="Wrapper"
+>
+  <div
+    className="page-header"
+  >
+    <h1>
+      Add Topic
+    </h1>
+    <h6>
+      Include a topic name and description
+    </h6>
+  </div>
+  <div
+    className="list-group"
+  >
+    <div
+      className="list-group-item"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="form-group row"
+        >
+          <label
+            className="col-sm-3 col-form-label"
+            htmlFor="titleInput"
+          >
+            <b>
+              Topic Name:
+            </b>
+          </label>
+          <div
+            className="col-sm-9"
+          >
+            <input
+              className="form-control"
+              defaultValue=""
+              placeholder="Title"
+            />
+          </div>
+        </div>
+        <div
+          className="form-group row"
+        >
+          <label
+            className="col-sm-3 col-form-label"
+            htmlFor="titleInput"
+          >
+            <b>
+              Topic Description:
+            </b>
+          </label>
+          <div
+            className="col-sm-9"
+          >
+            <input
+              className="form-control"
+              defaultValue=""
+              placeholder="Description"
+            />
+            <p
+              className="text-danger"
+            />
+          </div>
+        </div>
+        <button
+          className="btn btn-success"
+        >
+          Save
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`it should render header 1`] = `
+<Route
+  render={[Function]}
+/>
+`;
+
+exports[`it should render multichoice images 1`] = `
+<div
+  className="list-group-item"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-sm-2"
+    >
+      <label
+        className="col-form-label"
+        htmlFor="challengeType"
+      >
+        Question: 
+      </label>
+    </div>
+    <div
+      className="col-sm-10"
+    >
+      <input
+        className="form-control"
+        onBlur={[Function]}
+        placeholder="Enter a question..."
+      />
+      <span />
+      <span />
+      <span />
+      <span />
+      <span />
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-sm-6"
+    >
+      <input
+        className="form-control"
+        onBlur={[Function]}
+        placeholder="Possible answer..."
+      />
+    </div>
+    <div
+      className="col-sm-6"
+    >
+      <div
+        className="radio"
+      >
+        <label
+          className="radio-inline"
+        >
+          <input
+            name={undefined}
+            onChange={[Function]}
+            type="radio"
+            value="answer1"
+          />
+           Correct answer
+        </label>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-sm-6"
+    >
+      <input
+        className="form-control"
+        onBlur={[Function]}
+        placeholder="Possible answer..."
+      />
+    </div>
+    <div
+      className="col-sm-6"
+    >
+      <input
+        name={undefined}
+        onChange={[Function]}
+        type="radio"
+        value="answer2"
+      />
+       Correct answer
+      <br />
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-sm-6"
+    >
+      <input
+        className="form-control"
+        onBlur={[Function]}
+        placeholder="Possible answer..."
+      />
+    </div>
+    <div
+      className="col-sm-6"
+    >
+      <input
+        name={undefined}
+        onChange={[Function]}
+        type="radio"
+        value="answer3"
+      />
+       Correct answer
+      <br />
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-sm-6"
+    >
+      <input
+        className="form-control"
+        onBlur={[Function]}
+        placeholder="Possible answer..."
+      />
+    </div>
+    <div
+      className="col-sm-6"
+    >
+      <input
+        name={undefined}
+        onChange={[Function]}
+        type="radio"
+        value="answer4"
+      />
+       Correct answer
+      <br />
+    </div>
+  </div>
+  <span />
+  <span />
+  <span />
+  <span />
+  <span />
+  <div>
+    <t
+      accept="image/*"
+      disableClick={false}
+      disablePreview={false}
+      disabled={false}
+      maxSize={Infinity}
+      minSize={0}
+      multiple={false}
+      onDrop={[Function]}
+      preventDropOnDocument={true}
+      style={
+        Object {
+          "border": "2px dashed #442DB3",
+          "height": "20%",
+          "width": "20%",
+        }
+      }
+    >
+      <p>
+        Drag in an image, or click to upload
+      </p>
+    </t>
+    <p
+      className="text-danger"
+    />
+  </div>
+</div>
+`;
+
+exports[`it should render multichoice questions 1`] = `
+<div
+  className="list-group-item"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-sm-2"
+    >
+      <label
+        className="col-form-label"
+        htmlFor="challengeType"
+      >
+        Question: 
+      </label>
+    </div>
+    <div
+      className="col-sm-10"
+    >
+      <input
+        className="form-control"
+        onBlur={[Function]}
+        placeholder="Enter a question..."
+      />
+      <span />
+      <span />
+      <span />
+      <span />
+      <span />
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-sm-6"
+    >
+      <input
+        className="form-control"
+        onBlur={[Function]}
+        placeholder="Possible answer..."
+      />
+    </div>
+    <div
+      className="col-sm-6"
+    >
+      <div
+        className="radio"
+      >
+        <label
+          className="radio-inline"
+        >
+          <input
+            name={undefined}
+            onChange={[Function]}
+            type="radio"
+            value="answer1"
+          />
+           Correct answer
+        </label>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-sm-6"
+    >
+      <input
+        className="form-control"
+        onBlur={[Function]}
+        placeholder="Possible answer..."
+      />
+    </div>
+    <div
+      className="col-sm-6"
+    >
+      <input
+        name={undefined}
+        onChange={[Function]}
+        type="radio"
+        value="answer2"
+      />
+       Correct answer
+      <br />
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-sm-6"
+    >
+      <input
+        className="form-control"
+        onBlur={[Function]}
+        placeholder="Possible answer..."
+      />
+    </div>
+    <div
+      className="col-sm-6"
+    >
+      <input
+        name={undefined}
+        onChange={[Function]}
+        type="radio"
+        value="answer3"
+      />
+       Correct answer
+      <br />
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-sm-6"
+    >
+      <input
+        className="form-control"
+        onBlur={[Function]}
+        placeholder="Possible answer..."
+      />
+    </div>
+    <div
+      className="col-sm-6"
+    >
+      <input
+        name={undefined}
+        onChange={[Function]}
+        type="radio"
+        value="answer4"
+      />
+       Correct answer
+      <br />
+    </div>
+  </div>
+  <span />
+  <span />
+  <span />
+  <span />
+  <span />
+</div>
+`;
+
+exports[`it should render notif 1`] = `
+<div
+  className="Wrapper"
+>
+  <div
+    className="SendNotification"
+  >
+    <div
+      className="page-header"
+    >
+      <h3>
+        Push Notifications
+      </h3>
+      <h6>
+        Send a short message to all users that have given permission to receive notifications
+      </h6>
+    </div>
+    <SendNotification
+      buttonText="Send"
+      onNotificationSubmit={[Function]}
+    />
+    <div>
+      <div
+        className="alert"
+        role="alert"
+      >
+        <h4
+          className="alert-heading"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`it should render private routes 1`] = `
+<Route
+  render={[Function]}
+/>
+`;
+
+exports[`it should render sendnotif 1`] = `
+<div
+  className="SendNotification"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-group"
+    >
+      <input
+        className="form-control form-control-lg"
+        placeholder="Notificaiton"
+      />
+      <small
+        className="form-text text-muted"
+        id="emailHelp"
+      >
+        Try to keep the notification short and engaging
+      </small>
+      <button
+        className="btn btn-success notificationBtn"
+      />
+    </div>
+  </form>
+</div>
+`;

@@ -80,7 +80,7 @@ class AddTopic extends Component {
         .catch(function (error) {
           console.log("Issue saving topic");
           console.log(error);
-
+          alert("issue saving topic")
         });
 
         }

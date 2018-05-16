@@ -48,6 +48,7 @@ if (token) {
   .catch(function (error) {
     console.log("Issue with token... ")
     console.log(error);
+    
     //don't log in
     authTracking.setAuthStatus(false);
   });
