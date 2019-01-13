@@ -33,7 +33,7 @@ class AddSubtopic extends Component {
     closeSub(sub){
 
         console.log("Data sent back", sub)
-
+        this.props.onSubAdded(sub)
         this.setState({
             addSub:false,
             subAdded: true,

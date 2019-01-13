@@ -1,0 +1,13 @@
+.Heading {
+    padding-top: 50px;
+}
+
+.ChallengeLink {
+    color: purple;
+    text-decoration: none;
+}
+
+.ChallengeLink :hover {
+    color: grey;
+    text-decoration: none;
+}

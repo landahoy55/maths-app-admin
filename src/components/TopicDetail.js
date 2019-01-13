@@ -15,13 +15,17 @@ class TopicDetail extends Component {
             isEdit: false,
             title: this.props.location.state.topic.title,
             description: this.props.location.state.topic.description,
+            isPublished: this.props.location.state.topic.isPublished,
             subtopicCount: 0,
+            subTopicCountforPublishing: 0,
             stagesRemaining: [1,2,3,4,5]
         }
 
         this.onEdit = this.onEdit.bind(this);
         this.onEditSubmit = this.onEditSubmit.bind(this);
         this.onSave = this.onSave.bind(this);
+        this.isPublished = this.isPublished.bind(this);
+        this.onSubAdded = this.onSubAdded.bind(this);
 
     }
 
@@ -40,7 +44,7 @@ class TopicDetail extends Component {
         }
         console.log("ARRAY TO WORK WITH", currentStages);
 
-        //loop over new arra and remove element from subtopicStage
+        //loop over new array and remove element from subtopicStage
         var stageRemaining = this.state.stagesRemaining
         for (let stage of currentStages) {
             stageRemaining = stageRemaining.filter(item => item !== stage)
@@ -50,7 +54,8 @@ class TopicDetail extends Component {
 
         this.setState({
             subtopicCount: count,
-            stagesRemaining: stageRemaining
+            stagesRemaining: stageRemaining,
+            subTopicCountforPublishing: count
         })
 
 
@@ -64,7 +69,27 @@ class TopicDetail extends Component {
     onSave(){
         console.log('Testing');
     }
-
+    
+    isPublished(e){
+        const isPublished = e.target.value;
+        console.log("IS PUBLISHED", isPublished);
+        this.setState({
+            isPublished: isPublished
+        })
+    }
+    
+    onSubAdded(sub){
+        //when a subtopic is added remaining
+        console.log("Sub added")
+        let counter = this.state.subTopicCountforPublishing
+        if (sub){
+            counter += 1
+            this.setState({
+                subTopicCountforPublishing: counter
+            })
+        }
+    }
+ 
     onEditSubmit(event) {
         event.preventDefault();
         // this.props.onEditSubmit(this.nameInput.value, this.priceInput.value, this.props.name);
@@ -77,7 +102,13 @@ class TopicDetail extends Component {
         let currentComponent = this
         let title = this.titleInput.value
         let description = this.descriptionInput.value
+        let isPublished = this.state.isPublished
 
+        if (this.state.subTopicCountforPublishing !== 5 && isPublished === 'true') {
+            console.log("IN IF STATEMENT")
+            alert("Make sure there are five sub-topics")
+            return
+        }
 
         //check for blank
         if (title == '' || description == '') {
@@ -94,7 +125,8 @@ class TopicDetail extends Component {
             //axios - send details back.
             axios.put('https://morning-journey-26383.herokuapp.com/v1/topic/edittopic/' + this.props.location.state.topic._id, {
                 title: title,
-                description: description
+                description: description,
+                isPublished: isPublished
             })
             .then(function (response) {
                 console.log(response);
@@ -141,9 +173,23 @@ class TopicDetail extends Component {
                                     <label for="titleInput" className="col-sm-2 col-form-label"><b>Topic Description</b></label>
                                     <div className="col-sm-10">
                                         <input className="form-control" placeholder="Description" ref={descriptionInput => this.descriptionInput = descriptionInput} defaultValue={this.state.description} />
-                                        <p className="text-danger">{this.state.errorMessage}</p>
                                     </div>
                                 </div>
+                                <div className="form-group row">
+                                    <label for="titleInput" className="col-sm-2 col-form-label"><b>Published</b></label>
+                                    <div className="col-sm-10">
+                                        <select className="form-control"
+                                            name="published"
+                                            onChange={this.isPublished}
+                                            value={this.state.isPublished}
+                                            >
+                                                <option value="true">Published</option>
+                                                <option value="false">NOT Published</option>
+                                        </select>
+                                    </div>
+                                    <p className="text-danger">{this.state.errorMessage}</p>
+                                </div>
+                                
                                 <button className="btn btn-success">Save</button>
                         </form> 
                         </div>
@@ -178,11 +224,16 @@ class TopicDetail extends Component {
                 this.state.subtopicCount <= 4 ? 
                 (
                     <div> 
-                         <h6 className="sub-topic-title"> Sub-topics still to add: <b> {5 - this.state.subtopicCount} </b></h6>
+                         <h6 className="sub-topic-title"> Sub-topics still to add: <b> {5 - this.state.subTopicCountforPublishing} </b></h6>
                          {
                              this.state.stagesRemaining.map(stage => {
                                  return (
-                                    <AddSubtopic key={stage} stage={stage} parentid={this.props.location.state.topic._id} />
+                                    <AddSubtopic 
+                                        key={stage} 
+                                        stage={stage} 
+                                        parentid={this.props.location.state.topic._id} 
+                                        onSubAdded={this.onSubAdded} 
+                                    />
                                  )
                              })
                          }

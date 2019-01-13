@@ -87,6 +87,8 @@ class Header extends Component {
     // </ul>
 
     // navbar-light bg-light
+    // <a className="nav-link" onClick={this.removeToken}>Log Out</a>
+    // <Link className="nav-link" to="/signin">Sign In</Link>
 
     return (
 
@@ -102,7 +104,7 @@ class Header extends Component {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mr-auto">   
                         <li className="nav-item">
-                            <a className="nav-link" onClick={this.removeToken}>Log Out</a>
+                            
                         </li>
                         </ul>
                     </div>
@@ -116,7 +118,7 @@ class Header extends Component {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
-                        <Link className="nav-link" to="/signin">Sign In</Link>
+                        
                         </li>
                     </ul>
                     </div>

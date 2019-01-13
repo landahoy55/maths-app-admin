@@ -13,6 +13,9 @@ class Home extends Component {
         this.state = {
             stat: false
         };
+
+        this.removeToken = this.removeToken.bind(this);
+        this.signInPressed = this.signInPressed.bind(this);
     }
   
     componentDidMount(){
@@ -64,9 +67,27 @@ class Home extends Component {
 
     }
 
+    removeToken() {
+        //remove token
+        console.log("TOKEN REMOVED")
+        localStorage.removeItem('token')
+        //go to to login
+        let currentComponent = this;
+        currentComponent.props.history.push("/SignIn");
+    }
+
+    signInPressed(){
+        //go to to login
+        let currentComponent = this;
+        currentComponent.props.history.push("/SignIn");
+    }
+
     render() {
 
-
+    var logOutStyle = {
+        float: 'right',
+        marginTop: '25px'
+    }
 
       return (
         
@@ -117,6 +138,11 @@ class Home extends Component {
                      </div>
 
                 </div>
+
+                <div>
+                    <button onClick={this.removeToken} style={logOutStyle} className="btn btn-secondary btn-sm">Log Out</button>
+                </div>
+
             </div>
            
         ) : (
@@ -127,7 +153,7 @@ class Home extends Component {
                         <div className="words-log-in">
                             <br/>
                             <h1 className="title-log-in">Maths App administration site</h1>
-                            <h3>Log in to Continue</h3> 
+                            <button onClick={this.signInPressed} className="btn btn-primary homeBtn">Log In</button> 
                         </div>
                     </div>
                 </div>

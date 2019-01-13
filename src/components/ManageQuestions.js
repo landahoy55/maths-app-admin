@@ -120,7 +120,7 @@ class ManageQuestions extends Component {
             .then(function (response){
                 console.log("Topic deleted")
 
-                axios.get('https://morning-journey-26383.herokuapp.com/v1/topic')
+                axios.get('https://morning-journey-26383.herokuapp.com/v1/topic/all/')
                     .then(function (response) {
                         console.log(response.data);
                         currentComponent.setState({
@@ -174,7 +174,7 @@ class ManageQuestions extends Component {
         let currentComponent = this
 
         //perform networking
-        axios.get('https://morning-journey-26383.herokuapp.com/v1/topic')
+        axios.get('https://morning-journey-26383.herokuapp.com/v1/topic/all')
             .then(function (response) {
                 console.log(response.data);
                 currentComponent.setState({

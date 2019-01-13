@@ -21,6 +21,11 @@ class MultiChoice extends Component {
 
         this.onEdit = this.onEdit.bind(this);
         this.onEditSubmit = this.onEditSubmit.bind(this);
+        this.questionSet = this.questionSet.bind(this);
+        this.answer1Set = this.answer1Set.bind(this);
+        this.answer2Set = this.answer2Set.bind(this);
+        this.answer3Set = this.answer3Set.bind(this);
+        this.answer4Set = this.answer4Set.bind(this);
 
     }
 
@@ -43,6 +48,40 @@ class MultiChoice extends Component {
 
     }
 
+    questionSet = (e) => {
+        const question = e.target.value;
+        this.setState({
+            question: question
+        })
+    }
+
+    answer1Set = (e) => {
+        const answer1 = e.target.value;
+        this.setState({
+            answer1: answer1
+        })
+    }
+
+    answer2Set = (e) => {
+        const answer2 = e.target.value;
+        this.setState({
+            answer2: answer2
+        })
+    }
+
+    answer3Set = (e) => {
+        const answer3 = e.target.value;
+        this.setState({
+            answer3: answer3
+        })
+    }
+
+    answer4Set = (e) => {
+        const answer4 = e.target.value;
+        this.setState({
+            answer4: answer4
+        })
+    }
 
     onEdit() {
         this.setState({ isEdit: true });
@@ -53,12 +92,12 @@ class MultiChoice extends Component {
         let currentComponent = this
         // this.props.onEditSubmit(this.nameInput.value, this.priceInput.value, this.props.name);
         
-        let question = this.questionInput.value
+        let question = this.state.question
         let correctAnswer = this.state.correctAnswer
-        let correctAnswer1 = this.answer1Input.value
-        let correctAnswer2 = this.answer2Input.value
-        let correctAnswer3 = this.answer3Input.value
-        let correctAnswer4 = this.answer4Input.value
+        let correctAnswer1 = this.state.answer1
+        let correctAnswer2 = this.state.answer2
+        let correctAnswer3 = this.state.answer3
+        let correctAnswer4 = this.state.answer4
 
         //check for blank
         if (question == '' || correctAnswer == '' || correctAnswer1 == '' || correctAnswer2 == '' || correctAnswer3 == '' || correctAnswer4 == '') {
@@ -116,61 +155,44 @@ class MultiChoice extends Component {
                     <div className="form-group row">
                         <label for="questionInput" className="col-sm-2 col-form-label"><b>Question: </b></label>
                         <div className="col-sm-10">
-                            <input className="form-control" placeholder="Question" ref={questionInput => this.questionInput = questionInput} defaultValue={this.state.question}/>
+                            <input className="form-control" placeholder="Question" onBlur={this.questionSet} ref={questionInput => this.questionInput = questionInput} defaultValue={this.state.question}/>
                         </div>
                     </div>
                     <hr/>
                     <div className="form-group row">
                         <label for="answer1Input" className="col-sm-2 col-form-label"><b>Answer 1: </b></label>
                         <div className="col-sm-8">
-                            <input className="form-control" placeholder="Possible Answer" ref={answer1Input => this.answer1Input = answer1Input} defaultValue={this.state.answer1} />
+                            <input className="form-control" placeholder="Possible Answer" onBlur={this.answer1Set} ref={answer1Input => this.answer1Input = answer1Input} defaultValue={this.state.answer1} />
                         </div>
                         <div className="radio col-sm-2">
-                            {this.state.correctAnswer == this.state.answer1
-                                ? 
-                                (<div><input type="radio" value={this.state.answer1} name="radiotimes" checked onChange={this.radioChange}/> Answer<br/></div>):
-                                (<div><input type="radio" value={this.state.answer1} name="radiotimes" onChange={this.radioChange}/> Answer<br/></div>)
-                            }
-                            
+                            <input type="radio" value={this.state.answer1} name="radiotimes" onChange={this.radioChange}/> Answer<br/>
                         </div>
                     </div>
                     <div className="form-group row">
                         <label for="answer2Input" className="col-sm-2 col-form-label"><b>Answer 2: </b></label>
                         <div className="col-sm-8">
-                            <input className="form-control" placeholder="Possible Answer" ref={answer2Input => this.answer2Input = answer2Input} defaultValue={this.state.answer2} />
+                            <input className="form-control" placeholder="Possible Answer" onBlur={this.answer2Set} ref={answer2Input => this.answer2Input = answer2Input} defaultValue={this.state.answer2} />
                         </div>
                         <div className="radio col-sm-2">
-                            {this.state.correctAnswer == this.state.answer2
-                                ? 
-                                (<div><input type="radio" value={this.state.answer2} name="radiotimes" checked onChange={this.radioChange}/> Answer<br/></div>):
-                                (<div><input type="radio" value={this.state.answer2} name="radiotimes" onChange={this.radioChange}/> Answer<br/></div>)
-                            }
+                            <input type="radio" value={this.state.answer2} name="radiotimes" onChange={this.radioChange}/> Answer<br/>
                         </div>
                     </div>
                     <div className="form-group row">
                         <label for="answer3Input" className="col-sm-2 col-form-label"><b>Answer 3: </b></label>
                         <div className="col-sm-8">
-                            <input className="form-control" placeholder="Possible Answer" ref={answer3Input => this.answer3Input = answer3Input} defaultValue={this.state.answer3} />
+                            <input className="form-control" placeholder="Possible Answer" onBlur={this.answer3Set} ref={answer3Input => this.answer3Input = answer3Input} defaultValue={this.state.answer3} />
                         </div>
                         <div className="radio col-sm-2">
-                            {this.state.correctAnswer == this.state.answer3
-                                ? 
-                                (<div><input type="radio" value={this.state.answer3} name="radiotimes" checked onChange={this.radioChange}/> Answer<br/></div>):
-                                (<div><input type="radio" value={this.state.answer3} name="radiotimes" onChange={this.radioChange}/> Answer<br/></div>)
-                            }
+                            <input type="radio" value={this.state.answer3} name="radiotimes" onChange={this.radioChange}/> Answer<br/>
                         </div>
                     </div>
                     <div className="form-group row">
                         <label for="answer4Input" className="col-sm-2 col-form-label"><b>Answer 4: </b></label>
                         <div className="col-sm-8">
-                            <input className="form-control" placeholder="Possible Answer" ref={answer4Input => this.answer4Input = answer4Input} defaultValue={this.state.answer4} />
+                            <input className="form-control" placeholder="Possible Answer" onBlur={this.answer4Set} ref={answer4Input => this.answer4Input = answer4Input} defaultValue={this.state.answer4} />
                         </div>
                         <div className="radio col-sm-2">
-                        {this.state.correctAnswer == this.state.answer4
-                            ? 
-                            (<div><input type="radio" value={this.state.answer4} name="radiotimes" checked onChange={this.radioChange}/> Answer<br/></div>):
-                            (<div><input type="radio" value={this.state.answer4} name="radiotimes" onChange={this.radioChange}/> Answer<br/></div>)
-                        }
+                             <input type="radio" value={this.state.answer4} name="radiotimes" onChange={this.radioChange}/> Answer<br/>
                         </div>
                     </div>
                         <p className="text-danger">{this.state.errorMessage}</p>

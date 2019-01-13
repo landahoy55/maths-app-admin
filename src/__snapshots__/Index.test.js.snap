@@ -2,18 +2,19 @@
 
 exports[`it should render Challenge 1`] = `
 <div
-  className="Challenge App"
+  className="Challenge App Heading"
 >
   <h1>
     Daily Challenge
   </h1>
   <Link
+    className="ChallengeLink"
     replace={false}
     to="/todaychallenge"
   >
-    <h2>
+    <h4>
       Create Today's Challenge
-    </h2>
+    </h4>
   </Link>
 </div>
 `;

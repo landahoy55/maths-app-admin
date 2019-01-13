@@ -4,6 +4,7 @@ import axios from 'axios';
 import moment from 'moment';
 import MultipleChoiceQuestion from './MultipleChoiceQuestion';
 import InputQuestion from './InputQuestion';
+import ChallengeStyles from './TodayChallenge.css';
 
 class TodayChallenge extends Component {
     
@@ -478,8 +479,8 @@ class TodayChallenge extends Component {
                 <form onSubmit={this.onChallengeSubmit} > 
                     
                     <div className="list-group-item">
-                        <label for="challengeType" class="col-form-label">Challenge Type</label>
-                        <select class="form-control"
+                        <label for="challengeType" class="col-form-label"><b>Challenge Type</b></label>
+                        <select className="form-control"
                             name="challengeType"
                             onChange={this.challengetype}
                             >
@@ -488,9 +489,9 @@ class TodayChallenge extends Component {
                         </select>
                     
 
-                        <label for="challengeDesc" class="col-form-label">Description</label>
-                        <input class="form-control" placeholder="Challenge Description" onBlur={this.setDescription} ref={notificationInput => this.notificationInput = notificationInput}/>    
-                        <span>{this.state.descriptionError}</span>
+                        <label for="challengeDesc" className="col-form-label"><b>Description</b></label>
+                        <input className="form-control" placeholder="Challenge Description" onBlur={this.setDescription} ref={notificationInput => this.notificationInput = notificationInput}/>    
+                        <span className="form-text text-danger">{this.state.descriptionError}</span>
                     
                     </div>
 

@@ -57,7 +57,7 @@ class AddTopic extends Component {
 
         } else {
 
-            //networking then move to add subtopic screen.
+        //networking then move to add subtopic screen.
         //submit to server - replace not needed. AXIOS handles JSON parsing. Object was being parsed twice...
         axios.post('https://morning-journey-26383.herokuapp.com/v1/setup/createtopic', {
             title: title,
@@ -104,6 +104,9 @@ class AddTopic extends Component {
                             <div className="list-group-item">
                                 <div className="alert alert-success" role="alert">
                                     <strong>Topic Created</strong> Now to add some questions...
+                                </div>
+                                <div className="alert alert-danger" role="alert">
+                                    <strong>Publish topic from editing page</strong>
                                 </div>
                                 <h6><b>Topic Name: </b>{this.state.title}</h6>
                                 <h6><b>Topic Description: </b> {this.state.description}</h6>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
 
+//as suggested in docs used consts to asssign URL and presets.
 const CLOUDINARY_UPLOAD_PRESET = 'm3zoe3sx';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/landahoy55/upload';
 
@@ -29,14 +30,14 @@ class MultipleChoiceImages extends Component {
         this.onImageDrop = this.onImageDrop.bind(this);
     }
 
-    onImageDrop(files, rejectedFiles) {
+    onImageDrop(files) {
 
         //Docs suggest that a second parameter should allow for error handling. Not working.
-        if (rejectedFiles) {
-            console.log("REJECTED FILES")
-            alert("Not correct file type")
-            return
-        }
+        // if (rejectedFiles) {
+        //     console.log("REJECTED FILES")
+        //     alert("Not correct file type")
+        //     return
+        // }
 
         //cloudinary returns images array. Only single image - so at position one
         this.setState({
